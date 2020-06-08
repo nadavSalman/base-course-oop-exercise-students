@@ -40,11 +40,11 @@ public abstract class AerialVehicle implements AerialVehicleService{
         this.mission = mission;
     }
 
-    public int getFlightHoursSinceLastPatch() {
+    public int getHoursOfFlightSinceLastRepair() {
         return flightHoursSinceLastPatch;
     }
 
-    public void setFlightHoursSinceLastPatch(int flightHoursSinceLastPatch) {
+    public void setHoursOfFlightSinceLastRepair(int flightHoursSinceLastPatch) {
         flightHoursSinceLastPatch = flightHoursSinceLastPatch;
     }
 
@@ -55,6 +55,25 @@ public abstract class AerialVehicle implements AerialVehicleService{
     public void setFlightStatus(boolean flightStatus) {
         this.flightStatus = flightStatus;
     }
+
+    @Override
+    public void land() {
+        System.out.println("Landing");
+    }
+
+    @Override
+    public void flyTo() {
+        Coordinates coordinates = this.getMission().getCoordinates();
+        System.out.println("Flying to:"+coordinates.toString());
+    }
+
+    @Override
+    public void repair() {
+        this.flightStatus = true;
+        this.flightHoursSinceLastPatch = 0;
+    }
+
+
 
 
 

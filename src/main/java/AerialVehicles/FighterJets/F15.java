@@ -62,16 +62,6 @@ public class F15 extends AerialVehicle implements AerialAttackVehicle , AerialIn
                 " with sensor type: "+this.sensorType;
     }
 
-    @Override
-    public void flyTo() {
-        Coordinates coordinates = this.getMission().getCoordinates();
-        System.out.println("Flying to:"+coordinates.toString());
-    }
-
-    @Override
-    public void land() {
-        System.out.println("Landing");
-    }
 
     @Override
     public void check() {
@@ -79,9 +69,5 @@ public class F15 extends AerialVehicle implements AerialAttackVehicle , AerialIn
             repair();
     }
 
-    @Override
-    public void repair() {
-        this.flightStatus = true;
-        this.flightHoursSinceLastPatch = 0;
-    }
+
 }

@@ -4,11 +4,7 @@ import AerialVehicles.AerialAttackVehicle;
 import AerialVehicles.AerialBdaVehicle;
 import AerialVehicles.AerialIntelligenceVehicle;
 import AerialVehicles.AerialVehicle;
-import Missions.BdaMission;
-import Missions.Mission;
-import Missions.MissionService;
-import Missions.MissionTypeException;
-
+import Missions.*;
 
 
 public class Shoval extends AerialVehicle implements AerialAttackVehicle , AerialIntelligenceVehicle , AerialBdaVehicle {
@@ -19,44 +15,35 @@ public class Shoval extends AerialVehicle implements AerialAttackVehicle , Aeria
     private String sensorType;
     private String cameraType;
 
-    public Shoval(String pilotName, Mission mission, int flightHoursSinceLastPatch, boolean flightStatus) {
+
+    public Shoval(String cameraType , int numberOfMissiles ,String missilesType , String sensorType, String pilotName ,  Mission mission ,int flightHoursSinceLastPatch,  boolean flightStatus ) {
         super(pilotName, mission, flightHoursSinceLastPatch, flightStatus);
-    }
-
-
-    @Override
-    public void flyTo() {
-
-    }
-
-    @Override
-    public void land() {
-
+        this.numberOfMissiles = numberOfMissiles;
+        this.missilesType = missilesType;
+        this.sensorType = sensorType;
+        this.cameraType = cameraType;
     }
 
     @Override
     public void check() {
-
-    }
-
-    @Override
-    public void repair() {
-
+        if(this.flightHoursSinceLastPatch > HaronFix.MAX_HOUR_OF_FLIGHT_BEFORE_REPAIR)
+            repair();
     }
 
     @Override
     public String attack() {
-        return null;
-    }
-
-    @Override
-    public String preformBda() {
-        return null;
+        return this.pilotName+": Shoval Attacking "+((AttackMission)(this.mission)).getTarget()+" with: "+
+                this.missilesType+"X"+this.numberOfMissiles;
     }
 
     @Override
     public String collectIntelligence() {
-        return null;
+        return this.pilotName+": Shoval Collecting Data in "+((IntelligenceMission)(this.mission)).getRegion()+
+                " with sensor type: "+this.sensorType;
     }
+
+    @Override
+    public String preformBda() {
+        return this.pilotName+": Shoval taking pictures of "+((BdaMission)(this.mission)).getObjective()+" with: "+this.cameraType+this.cameraType+" camera";    }
 }
 

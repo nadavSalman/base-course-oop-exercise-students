@@ -6,6 +6,8 @@ import Missions.IntelligenceMission;
 import Missions.MissionTypeException;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class testShoval {
     Coordinates coordinatesToAttack = new Coordinates(31.389906, 34.330190);
     AttackMission attackMission = new AttackMission("suspect house", coordinatesToAttack);

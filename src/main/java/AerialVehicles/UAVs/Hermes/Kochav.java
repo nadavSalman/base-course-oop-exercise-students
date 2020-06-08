@@ -4,8 +4,8 @@ import AerialVehicles.AerialAttackVehicle;
 import AerialVehicles.AerialBdaVehicle;
 import AerialVehicles.AerialIntelligenceVehicle;
 import AerialVehicles.AerialVehicle;
-import Missions.Mission;
-import Missions.MissionService;
+import AerialVehicles.UAVs.Haron.HaronFix;
+import Missions.*;
 
 public class Kochav extends AerialVehicle implements AerialAttackVehicle, AerialIntelligenceVehicle, AerialBdaVehicle {
 
@@ -14,42 +14,43 @@ public class Kochav extends AerialVehicle implements AerialAttackVehicle, Aerial
     private String sensorType;
     private String cameraType;
 
-    public Kochav(String pilotName, Mission mission, int flightHoursSinceLastPatch, boolean flightStatus) {
+    public Kochav(int numberOfMissiles ,String pilotName ,String cameraType ,String sensorType,String missilesType ,   Mission mission, int flightHoursSinceLastPatch, boolean flightStatus ) {
         super(pilotName, mission, flightHoursSinceLastPatch, flightStatus);
-    }
-
-    @Override
-    public void flyTo() {
-
-    }
-
-    @Override
-    public void land() {
-
+        this.numberOfMissiles = numberOfMissiles;
+        this.missilesType = missilesType;
+        this.sensorType = sensorType;
+        this.cameraType = cameraType;
     }
 
     @Override
     public void check() {
-
-    }
-
-    @Override
-    public void repair() {
-
+        if(this.flightHoursSinceLastPatch > HermesFix.MAX_HOUR_OF_FLIGHT_BEFORE_REPAIR)
+            repair();
     }
 
     @Override
     public String attack() {
-        return null;
+        return this.pilotName + ": Kochav Attacking " + ((AttackMission) (this.mission)).getTarget() + " with: " +
+                this.missilesType + "X" + this.numberOfMissiles;
     }
 
     @Override
     public String preformBda() {
-        return null;
+        return this.pilotName + ": Kochav taking pictures of " + ((BdaMission) (this.mission)).getObjective() + " with: " + this.cameraType+this.cameraType+" camera";
     }
+
 
     @Override
     public String collectIntelligence() {
-        return null;
+        return this.pilotName + ": Kochav Collecting Data in " + ((IntelligenceMission) (this.mission)).getRegion() +
+                " with sensor type: " + this.sensorType;
     }
 }
+
+
+
+
+
+
+
+

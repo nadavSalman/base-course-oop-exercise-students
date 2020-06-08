@@ -13,38 +13,32 @@ public class F16 extends AerialVehicle implements AerialAttackVehicle , AerialBd
     private String missilesType;
     private String cameraType;
 
-    public F16(String pilotName, Mission mission, int flightHoursSinceLastPatch, boolean flightStatus) {
+    public F16( String cameraType , int numberOfMissiles, String missilesType,String pilotName, Mission mission , int flightHoursSinceLastPatch, boolean flightStatus) {
         super(pilotName, mission, flightHoursSinceLastPatch, flightStatus);
-    }
-
-
-    @Override
-    public void flyTo() {
-
-    }
-
-    @Override
-    public void land() {
-
+        this.numberOfMissiles = numberOfMissiles;
+        this.missilesType = missilesType;
+        this.cameraType = cameraType;
     }
 
     @Override
     public void check() {
-
+        if(this.flightHoursSinceLastPatch > AttckFix.MAX_HOUR_OF_FLIGHT_BEFORE_REPAIR)
+            repair();
     }
 
-    @Override
-    public void repair() {
 
-    }
 
     @Override
     public String attack() {
-        return null;
+        return this.pilotName+": F16 Attacking "+((AttackMission)(this.mission)).getTarget()+" with: "+
+                this.missilesType+"X"+this.numberOfMissiles;
     }
 
     @Override
     public String preformBda() {
-        return null;
+        return this.pilotName+": F16 taking pictures of "+((BdaMission)(this.mission)).getObjective()+" with: "+this.cameraType+" camera";
     }
 }
+
+
+
