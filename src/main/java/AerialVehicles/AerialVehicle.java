@@ -13,7 +13,7 @@ public abstract class AerialVehicle implements AerialVehicleService{
 
     protected String pilotName;
     protected Mission mission;
-    protected int flightHoursSinceLastPatch;//hours in Integer.
+    protected int flightHoursSinceLastPatch;
     protected boolean flightStatus;
 
     public AerialVehicle(String pilotName, Mission mission, int flightHoursSinceLastPatch, boolean flightStatus) {
