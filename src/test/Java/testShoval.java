@@ -1,4 +1,3 @@
-import AerialVehicles.UAVs.Haron.Eitan;
 import AerialVehicles.UAVs.Haron.Shoval;
 import Entities.Coordinates;
 import Missions.AttackMission;
@@ -6,8 +5,6 @@ import Missions.BdaMission;
 import Missions.IntelligenceMission;
 import Missions.MissionTypeException;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class testShoval {
     Coordinates coordinatesToAttack = new Coordinates(31.389906, 34.330190);

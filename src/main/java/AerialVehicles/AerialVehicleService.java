@@ -1,10 +1,14 @@
 package AerialVehicles;
 
-import Entities.Coordinates;
-
 public interface AerialVehicleService {
 
-    public void begin();
+    public void flyTo();
 
-    public void
+    public void land();
+
+    public void check();
+
+    public void repair();
+
+
 }
