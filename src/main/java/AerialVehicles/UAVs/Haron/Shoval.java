@@ -44,6 +44,6 @@ public class Shoval extends AerialVehicle implements AerialAttackVehicle , Aeria
 
     @Override
     public String preformBda() {
-        return this.pilotName+": Shoval taking pictures of "+((BdaMission)(this.mission)).getObjective()+" with: "+this.cameraType+this.cameraType+" camera";    }
+        return this.pilotName+": Shoval taking pictures of "+((BdaMission)(this.mission)).getObjective()+" with: "+this.cameraType+" camera";    }
 }
 

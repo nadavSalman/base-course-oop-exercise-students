@@ -22,7 +22,7 @@ public class Eitan extends AerialVehicle implements AerialIntelligenceVehicle , 
     @Override
     public void check() {
         if(this.flightHoursSinceLastPatch > HaronFix.MAX_HOUR_OF_FLIGHT_BEFORE_REPAIR)
-            repair();
+            super.repair();
     }
 
     @Override

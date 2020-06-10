@@ -45,7 +45,7 @@ public abstract class AerialVehicle implements AerialVehicleService{
     }
 
     public void setHoursOfFlightSinceLastRepair(int flightHoursSinceLastPatch) {
-        flightHoursSinceLastPatch = flightHoursSinceLastPatch;
+        this.flightHoursSinceLastPatch = flightHoursSinceLastPatch;
     }
 
     public boolean isFlightStatus() {

@@ -33,6 +33,6 @@ public class Zik extends AerialVehicle implements AerialIntelligenceVehicle  , A
 
     @Override
     public String preformBda() {
-        return this.pilotName + ": Zik taking pictures of " + ((BdaMission) (this.mission)).getObjective() + " with: " + this.cameraType+this.cameraType+" camera";
+        return this.pilotName + ": Zik taking pictures of " + ((BdaMission) (this.mission)).getObjective() + " with: " +this.cameraType+" camera";
     }
 }
