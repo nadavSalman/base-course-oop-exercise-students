@@ -40,6 +40,9 @@ public class Kochav extends AerialVehicle implements AerialAttackVehicle, Aerial
     }
 
 
+
+
+
     @Override
     public String collectIntelligence() {
         return this.pilotName + ": Kochav Collecting Data in " + ((IntelligenceMission) (this.mission)).getRegion() +
